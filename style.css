@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0; }
+
+.bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: black; }
+
+.schedule {
+  width: 300px;
+  height: 600px; }
+  .schedule .r {
+    width: 100px;
+    height: 100px;
+    outline: 1px solid white;
+    float: left; }
+
+/*# sourceMappingURL=style.css.map */
