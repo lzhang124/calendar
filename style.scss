@@ -14,13 +14,14 @@ html, body {
     width: 100%;
 
     .r {
+      height: 4.166%;
       width: 100%;
-      height: 100px;
-      outline: 1px solid black;
-      float: left;
+      // outline: 1px solid black;
 
       .c {
-
+        height: 100%;
+        width: 14.285%;
+        outline: 1px solid black;
       }
     }
   }
