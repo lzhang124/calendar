@@ -4,13 +4,6 @@ html, body {
   margin: 0;
 }
 
-.bg {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background: black;
-}
-
 .schedule {
   width: 300px;
   height: 600px;
@@ -18,7 +11,7 @@ html, body {
   .r {
     width: 100px;
     height: 100px;
-    outline: 1px solid white;
+    outline: 1px solid black;
     float: left;
 
     .c {
