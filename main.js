@@ -1,6 +1,6 @@
 var app = angular.module('calendar', []);
 
-app.controller('calendarController', function($scope) {
+app.controller('calendarController', function($scope, $document, $element) {
   $scope.week = [
     'Sun',
     'Mon',
@@ -43,19 +43,59 @@ app.controller('calendarController', function($scope) {
     $scope.schedule[i] = new Array(hours);
   }
 
-  $scope.number = function(num) {
-    return new Array(num);
+  var startCell = null;
+  var dragging = false;
+
+  function mouseUp(el) {
+    startCell = null;
+    dragging = false;
+    scheduleTimes();
+  }
+  
+  function mouseDown(el) {
+    dragging = true;
+
+    var cell = getCoords(el);
+    if ($scope.schedule[cell.day][cell.hour] === 1) {
+      $scope.schedule[cell.day][cell.hour] = null;
+    } else {
+      $scope.schedule[cell.day][cell.hour] = 1;
+    }
+    startCell = cell;
   }
 
-  // $scope.select = function(day, hour) {
-  //   if ($scope.schedule[day][hour] === 1) {
-  //     $scope.schedule[day][hour] = null;
-  //   } else {
-  //     $scope.schedule[day][hour] = 1;
-  //   }
-  //   console.log('day='+day, 'hour='+hour);
-  //   scheduleTimes();
-  // }
+  function mouseEnter(el) {
+    if (!dragging) return;
+    
+    var cell = getCoords(el);
+    if ($scope.schedule[startCell.day][startCell.hour] === 1) {
+      $scope.schedule[cell.day][cell.hour] = 1;
+    } else {
+      $scope.schedule[cell.day][cell.hour] = null;
+    }
+  }
+        
+  function getCoords(cell) {
+    var column = cell[0].cellIndex;
+    var row = cell.parent()[0].rowIndex;
+    return {
+      day: column,
+      hour: row
+    };
+  }
+  
+  function wrap(fn) {
+    return function() {
+      var el = angular.element(this);
+      $scope.$apply(function() {
+        fn(el);
+      });
+    }
+  }
+  
+  $element.delegate('.c', 'mousedown', wrap(mouseDown));
+  $element.delegate('.c', 'mouseenter', wrap(mouseEnter));
+  $document.delegate('body', 'mouseup', wrap(mouseUp));
 
   $scope.startTimes = [];
   $scope.durations = [];
@@ -82,69 +122,6 @@ app.controller('calendarController', function($scope) {
           }
         }
       }
-    }
-  }
-});
-
-app.directive('dragSelect', function($window, $document) {
-  return {
-    controller: function($scope, $element) {
-      var startCell = null;
-      var dragging = false;
-
-      function mouseUp(el) {
-        dragging = false;
-      }
-      
-      function mouseDown(el) {
-        dragging = true;
-        setStartCell(el);
-        if (startCell.hasClass('selected')) {
-          startCell.removeClass('selected');  
-        } else {
-          startCell.addClass('selected');
-        }
-      }
-      
-      function mouseEnter(el) {
-        if (!dragging) return;
-        setEndCell(el);
-      }
-      
-      function setStartCell(el) {
-        startCell = el;
-      }
-      
-      function setEndCell(el) {
-        if (startCell.hasClass('selected')) {
-          el.addClass('selected');  
-        } else {
-          el.removeClass('selected');
-        }
-      }
-            
-      function getCoords(cell) {
-        var column = cell[0].cellIndex;
-        var row = cell.parent()[0].rowIndex;
-        console.log(c, r);
-        return {
-          c: column,
-          r: row
-        };
-      }
-    
-      function wrap(fn) {
-        return function() {
-          var el = angular.element(this);
-          $scope.$apply(function() {
-            fn(el);
-          });
-        }
-      }
-      
-      $element.delegate('.c', 'mousedown', wrap(mouseDown));
-      $element.delegate('.c', 'mouseenter', wrap(mouseEnter));
-      $document.delegate('body', 'mouseup', wrap(mouseUp));
     }
   }
 });

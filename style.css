@@ -42,16 +42,8 @@ html, body {
         .container .days table.calendar tr.r td.c {
           padding: 12px 0;
           outline: 1px solid black; }
-    .container .days [drag-select] {
-      cursor: default;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none; }
-      .container .days [drag-select] .selected {
-        background: green; }
+        .container .days table.calendar tr.r .selected {
+          background: green; }
   .container .results {
     width: 60%;
     position: absolute;
