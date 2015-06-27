@@ -11,7 +11,7 @@ html, body {
   color: black;
 
   .r {
-    height: 25px;
+    height: 23px;
     width: 100%;
 
     .c {
@@ -24,7 +24,7 @@ html, body {
 
   .times {
     width: 3%;
-    margin-top: 45px;
+    margin-top: 40px;
     margin-bottom: 10px;
     padding-right: 1%;
     float: left;
@@ -41,15 +41,19 @@ html, body {
     float: right;
     text-align: center;
 
-    .calendar {
+    table.calendar {
       width: 100%;
+      padding: 0;
       border-top: 3px solid black;
       border-bottom: 3px solid black;
+      -webkit-border-horizontal-spacing: 0;
+      -webkit-border-vertical-spacing: 0;
 
-      .r {
-        border-bottom: 1px solid black;
+      tr.r {
+        height: 22px;
 
-        .c {
+        td.c {
+          padding: 12px 0;
           outline: 1px solid black;
 
           .selected {
@@ -58,6 +62,20 @@ html, body {
             background: green;
           }
         }
+      }
+    }
+
+    [drag-select] {
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      .selected {
+        background: green;
       }
     }
   }

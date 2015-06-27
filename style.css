@@ -9,7 +9,7 @@ html, body {
   font-family: "Lato", sans-serif;
   color: black; }
   .container .r {
-    height: 25px;
+    height: 23px;
     width: 100%; }
     .container .r .c {
       height: 100%;
@@ -18,7 +18,7 @@ html, body {
       float: left; }
   .container .times {
     width: 3%;
-    margin-top: 45px;
+    margin-top: 40px;
     margin-bottom: 10px;
     padding-right: 1%;
     float: left;
@@ -30,18 +30,32 @@ html, body {
     width: 95%;
     float: right;
     text-align: center; }
-    .container .days .calendar {
+    .container .days table.calendar {
       width: 100%;
+      padding: 0;
       border-top: 3px solid black;
-      border-bottom: 3px solid black; }
-      .container .days .calendar .r {
-        border-bottom: 1px solid black; }
-        .container .days .calendar .r .c {
+      border-bottom: 3px solid black;
+      -webkit-border-horizontal-spacing: 0;
+      -webkit-border-vertical-spacing: 0; }
+      .container .days table.calendar tr.r {
+        height: 22px; }
+        .container .days table.calendar tr.r td.c {
+          padding: 12px 0;
           outline: 1px solid black; }
-          .container .days .calendar .r .c .selected {
+          .container .days table.calendar tr.r td.c .selected {
             height: 100%;
             width: 100%;
             background: green; }
+    .container .days [drag-select] {
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+      .container .days [drag-select] .selected {
+        background: green; }
   .container .results {
     width: 60%;
     position: absolute;
