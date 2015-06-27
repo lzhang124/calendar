@@ -1,6 +1,8 @@
 var app = angular.module('calendar', []);
 
 app.controller('calendarController', function($scope, $document, $element) {
+  
+  // DATA //
   $scope.week = [
     'Sun',
     'Mon',
@@ -36,6 +38,8 @@ app.controller('calendarController', function($scope, $document, $element) {
     '11'
   ];
 
+
+  // INIT //
   var hours = 24;
   var days = 7;
   $scope.schedule = new Array(days);
@@ -43,13 +47,14 @@ app.controller('calendarController', function($scope, $document, $element) {
     $scope.schedule[i] = new Array(hours);
   }
 
+
+  // DRAG TO SELECT //
   var startCell = null;
   var dragging = false;
 
   function mouseUp(el) {
     startCell = null;
     dragging = false;
-    scheduleTimes();
   }
   
   function mouseDown(el) {
@@ -97,10 +102,9 @@ app.controller('calendarController', function($scope, $document, $element) {
   $element.delegate('.c', 'mouseenter', wrap(mouseEnter));
   $document.delegate('body', 'mouseup', wrap(mouseUp));
 
-  $scope.startTimes = [];
-  $scope.durations = [];
 
-  var scheduleTimes = function() {
+  // CALCULATE TIMES //
+  $scope.scheduleTimes = function() {
     $scope.startTimes = [];
     $scope.durations = [];
     var block = false;
