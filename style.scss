@@ -46,7 +46,7 @@ html, body {
       padding: 0;
       border-top: 3px solid black;
       border-bottom: 3px solid black;
-      -webkit-border-horizontal-spacing: 0;
+      -webkit-border-horizontal-spacing: 1px;
       -webkit-border-vertical-spacing: 0;
 
       tr.r {
@@ -55,18 +55,12 @@ html, body {
         td.c {
           padding: 12px 0;
           outline: 1px solid black;
-
-          .selected {
-            height: 100%;
-            width: 100%;
-            background: green;
-          }
         }
       }
     }
 
     [drag-select] {
-      cursor: pointer;
+      cursor: default;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;

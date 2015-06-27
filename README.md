@@ -1,2 +1,2 @@
 # calendar
-a when2meet-like calendar
+a when2meet-like calendar with angular

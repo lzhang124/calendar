@@ -29,8 +29,7 @@
       </div>
       <table drag-select class="calendar">
         <tr class="r" ng-repeat="hour in schedule[0] track by $index">
-          <td class="c" id="day" ng-repeat="day in schedule track by $index" ng-click="select($index, $parent.$index)">
-            <div ng-class="{'selected': schedule[$index][$parent.$index] === 1}"></div>
+          <td class="c" ng-repeat="day in schedule track by $index">
           </td>
         </tr>
       </table>

@@ -99,7 +99,11 @@ app.directive('dragSelect', function($window, $document) {
       function mouseDown(el) {
         dragging = true;
         setStartCell(el);
-        setEndCell(el);
+        if (startCell.hasClass('selected')) {
+          startCell.removeClass('selected');  
+        } else {
+          startCell.addClass('selected');
+        }
       }
       
       function mouseEnter(el) {
@@ -112,40 +116,20 @@ app.directive('dragSelect', function($window, $document) {
       }
       
       function setEndCell(el) {
-        $element.find($('.c')).removeClass('selected');
-        cellsBetween(startCell, el).each(function() {
-          var el = angular.element(this);
-          el.addClass('selected');
-        });
+        if (startCell.hasClass('selected')) {
+          el.addClass('selected');  
+        } else {
+          el.removeClass('selected');
+        }
       }
-      
-      function cellsBetween(start, end) {
-        var coordsStart = getCoords(start);
-        var coordsEnd = getCoords(end);
-        var topLeft = {
-          column: $window.Math.min(coordsStart.column, coordsEnd.column),
-          row: $window.Math.min(coordsStart.row, coordsEnd.row),
-        };
-        var bottomRight = {
-          column: $window.Math.max(coordsStart.column, coordsEnd.column),
-          row: $window.Math.max(coordsStart.row, coordsEnd.row),
-        };
-        return $element.find($('.c')).filter(function() {
-          var el = angular.element(this);
-          var coords = getCoords(el);
-          return coords.column >= topLeft.column
-              && coords.column <= bottomRight.column
-              && coords.row >= topLeft.row
-              && coords.row <= bottomRight.row;
-        });
-      }
-      
+            
       function getCoords(cell) {
-        var row = cell.parents('row');
-        console.log(cell[0].cellIndex);
+        var column = cell[0].cellIndex;
+        var row = cell.parent()[0].rowIndex;
+        console.log(c, r);
         return {
-          column: cell[0].cellIndex, 
-          row: cell.parent()[0].rowIndex
+          c: column,
+          r: row
         };
       }
     
