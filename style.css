@@ -5,25 +5,40 @@ html, body {
 
 .container {
   width: 60%;
-  padding: 5% 20%; }
-  .container .calendar {
-    width: 100%;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black; }
-    .container .calendar .hour {
-      height: 25px;
+  padding: 5% 20%;
+  font-family: "Lato", sans-serif;
+  color: black; }
+  .container .r {
+    height: 25px;
+    width: 100%; }
+    .container .r .c {
+      height: 100%;
+      width: 14.285%;
+      background: white;
+      float: left; }
+  .container .times {
+    width: 50px;
+    margin-top: 45px;
+    float: left;
+    text-align: right;
+    font-size: .75em; }
+    .container .times .r {
+      margin: 1px 0; }
+  .container .days {
+    width: 85%;
+    float: right;
+    text-align: center; }
+    .container .days .calendar {
       width: 100%;
-      border-bottom: 1px solid black; }
-      .container .calendar .hour .day {
-        height: 100%;
-        width: 14.285%;
-        background: white;
-        outline: 1px solid black;
-        float: left; }
-
-.selected {
-  height: 100%;
-  width: 100%;
-  background: green; }
+      border-top: 3px solid black;
+      border-bottom: 3px solid black; }
+      .container .days .calendar .r {
+        border-bottom: 1px solid black; }
+        .container .days .calendar .r .c {
+          outline: 1px solid black; }
+          .container .days .calendar .r .c .selected {
+            height: 100%;
+            width: 100%;
+            background: green; }
 
 /*# sourceMappingURL=style.css.map */

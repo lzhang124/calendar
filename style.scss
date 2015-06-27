@@ -7,30 +7,56 @@ html, body {
 .container {
   width: 60%;
   padding: 5% 20%;
+  font-family: "Lato", sans-serif;
+  color: black;
 
-  .calendar {
+  .r {
+    height: 25px;
     width: 100%;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
 
-    .hour {
-      height: 25px;
+    .c {
+      height: 100%;
+      width: 14.285%;
+      background: white;
+      float: left;
+    }
+  }
+
+  .times {
+    width: 50px;
+    margin-top: 45px;
+    float: left;
+    text-align: right;
+    font-size: .75em;
+
+    .r {
+      margin: 1px 0;
+    }
+  }
+
+  .days {
+    width: 85%;
+    float: right;
+    text-align: center;
+
+    .calendar {
       width: 100%;
-      border-bottom: 1px solid black;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
 
-      .day {
-        height: 100%;
-        width: 14.285%;
-        background: white;
-        outline: 1px solid black;
-        float: left;
+      .r {
+        border-bottom: 1px solid black;
+
+        .c {
+          outline: 1px solid black;
+
+          .selected {
+            height: 100%;
+            width: 100%;
+            background: green;
+          }
+        }
       }
     }
   }
-}
-
-.selected {
-  height: 100%;
-  width: 100%;
-  background: green;
 }

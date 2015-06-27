@@ -4,6 +4,7 @@
   <title>Calendar</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet" type="text/css">
 
   <!-- Angular JS -->
@@ -14,15 +15,25 @@
   <script src="main.js"></script>
 </head>
 </body>
-  <div class="container">
-    <div class="calendar" ng-controller="calendarController">
-        <div class="hour" id="hour" ng-repeat="hour in schedule track by $index">
-          <div class="day" id="day"
-               ng-repeat="day in hour track by $index"
-               ng-click="select($index, $parent.$index, day)">
+  <div class="container" ng-controller="calendarController">
+    <div class="times">
+      <div class="r" ng-repeat="time in times track by $index">
+        {{ time }}
+      </div>
+    </div>
+    <div class="days">
+      <div class="r">
+        <div class="c" ng-repeat="day in week">
+          {{ day }}
+        </div>
+      </div>
+      <div class="calendar">
+        <div class="r" ng-repeat="hour in schedule track by $index">
+          <div class="c" ng-repeat="day in hour track by $index" ng-click="select($index, $parent.$index, day)">
             <div ng-class="{'selected': schedule[$parent.$index][$index] === 1}"></div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </body>

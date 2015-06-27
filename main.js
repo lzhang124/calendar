@@ -1,6 +1,41 @@
 var app = angular.module('calendar', []);
 
 app.controller('calendarController', function($scope) {
+  $scope.week = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat'
+  ];
+  $scope.times = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11'
+  ];
+
   var hours = 24;
   var days = 7;
   $scope.schedule = new Array(hours);
@@ -19,6 +54,5 @@ app.controller('calendarController', function($scope) {
       $scope.schedule[hour][day] = 1;
     }
     console.log('day='+day, 'hour='+hour);
-    console.log($scope.schedule[hour][day] === 1);
   }
 });
