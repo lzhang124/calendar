@@ -4,8 +4,8 @@ html, body {
   margin: 0; }
 
 .container {
-  width: 60%;
-  padding: 5% 20%;
+  width: 63%;
+  padding: 5% 20% 5% 17%;
   font-family: "Lato", sans-serif;
   color: black; }
   .container .r {
@@ -48,6 +48,7 @@ html, body {
     width: 60%;
     position: absolute;
     bottom: 15%;
+    margin-left: 3%;
     text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
