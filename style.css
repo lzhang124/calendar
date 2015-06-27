@@ -19,6 +19,7 @@ html, body {
   .container .times {
     width: 3%;
     margin-top: 45px;
+    margin-bottom: 10px;
     padding-right: 1%;
     float: left;
     text-align: right;
@@ -41,5 +42,10 @@ html, body {
             height: 100%;
             width: 100%;
             background: green; }
+  .container .results {
+    width: 60%;
+    position: absolute;
+    bottom: 15%;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

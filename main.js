@@ -54,5 +54,33 @@ app.controller('calendarController', function($scope) {
       $scope.schedule[day][hour] = 1;
     }
     console.log('day='+day, 'hour='+hour);
+    scheduleTimes();
+  }
+
+  $scope.startTimes = [];
+  $scope.durations = [];
+  var scheduleTimes = function() {
+    $scope.startTimes = [];
+    $scope.durations = [];
+    var block = false;
+    var duration;
+    for (var day = 0; day < 7; day++) {
+      for (var hour = 0; hour < 24; hour++) {
+        if ($scope.schedule[day][hour] === 1) {
+          if (block) {
+            duration++;
+          } else {
+            $scope.startTimes.push(hour);
+            block = true;
+            duration = 1;
+          }
+        } else {
+          if (block) {
+            $scope.durations.push(duration);
+            block = false;
+          }
+        }
+      }
+    }
   }
 });
