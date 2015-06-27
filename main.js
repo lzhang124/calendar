@@ -105,6 +105,10 @@ app.controller('calendarController', function($scope, $document, $element) {
 
   // CALCULATE TIMES //
   $scope.scheduleTimes = function() {
+    var offset = new Date().getTimezoneOffset()*60*1000;
+    console.log(offset);
+    var date = Math.floor(new Date()/604800000)*604800000 - 345600000;
+
     $scope.startTimes = [];
     $scope.durations = [];
     var block = false;
@@ -115,7 +119,7 @@ app.controller('calendarController', function($scope, $document, $element) {
           if (block) {
             duration++;
           } else {
-            $scope.startTimes.push(hour);
+            $scope.startTimes.push(date + day*86400000 + hour*3600000 + offset);
             block = true;
             duration = 1;
           }
