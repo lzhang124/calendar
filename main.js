@@ -38,9 +38,9 @@ app.controller('calendarController', function($scope) {
 
   var hours = 24;
   var days = 7;
-  $scope.schedule = new Array(hours);
-  for (var i = 0; i < hours; i++) {
-    $scope.schedule[i] = new Array(days);
+  $scope.schedule = new Array(days);
+  for (var i = 0; i < days; i++) {
+    $scope.schedule[i] = new Array(hours);
   }
 
   $scope.number = function(num) {
@@ -48,10 +48,10 @@ app.controller('calendarController', function($scope) {
   }
 
   $scope.select = function(day, hour) {
-    if ($scope.schedule[hour][day] === 1) {
-      $scope.schedule[hour][day] = null;
+    if ($scope.schedule[day][hour] === 1) {
+      $scope.schedule[day][hour] = null;
     } else {
-      $scope.schedule[hour][day] = 1;
+      $scope.schedule[day][hour] = 1;
     }
     console.log('day='+day, 'hour='+hour);
   }

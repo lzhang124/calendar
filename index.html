@@ -28,9 +28,9 @@
         </div>
       </div>
       <div class="calendar">
-        <div class="r" ng-repeat="hour in schedule track by $index">
-          <div class="c" ng-repeat="day in hour track by $index" ng-click="select($index, $parent.$index, day)">
-            <div ng-class="{'selected': schedule[$parent.$index][$index] === 1}"></div>
+        <div class="r" ng-repeat="hour in schedule[0] track by $index">
+          <div id="selectable" class="c" ng-repeat="day in schedule track by $index" ng-click="select($index, $parent.$index)">
+            <div ng-class="{'selected': schedule[$index][$parent.$index] === 1}"></div>
           </div>
         </div>
       </div>
