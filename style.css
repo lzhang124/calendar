@@ -4,21 +4,26 @@ html, body {
   margin: 0; }
 
 .container {
-  height: 80%;
-  width: 80%;
-  padding: 10vh 10vw; }
+  width: 60%;
+  padding: 5% 20%; }
   .container .calendar {
-    height: 100%;
     width: 100%;
     border-top: 3px solid black;
     border-bottom: 3px solid black; }
     .container .calendar .hour {
-      height: 4.166%;
+      height: 25px;
       width: 100%;
       border-bottom: 1px solid black; }
       .container .calendar .hour .day {
         height: 100%;
         width: 14.285%;
-        outline: 1px solid black; }
+        background: white;
+        outline: 1px solid black;
+        float: left; }
+
+.selected {
+  height: 100%;
+  width: 100%;
+  background: green; }
 
 /*# sourceMappingURL=style.css.map */

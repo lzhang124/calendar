@@ -16,8 +16,12 @@
 </body>
   <div class="container">
     <div class="calendar" ng-controller="calendarController">
-        <div class="hour" ng-repeat="hour in hours">
-          <div class="day" ng-repeat="day in days"></div>
+        <div class="hour" id="hour" ng-repeat="hour in schedule track by $index">
+          <div class="day" id="day"
+               ng-repeat="day in hour track by $index"
+               ng-click="select($index, $parent.$index, day)">
+            <div ng-class="{'selected': schedule[$parent.$index][$index] === 1}"></div>
+          </div>
         </div>
     </div>
   </div>
