@@ -126,6 +126,10 @@ app.controller('calendarController', function($scope, $document, $element) {
           }
         }
       }
+      if (block) {
+        $scope.durations.push(duration);
+        block = false;
+      }
     }
   }
 });
