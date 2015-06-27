@@ -17,15 +17,16 @@ html, body {
       background: white;
       float: left; }
   .container .times {
-    width: 50px;
+    width: 3%;
     margin-top: 45px;
+    padding-right: 1%;
     float: left;
     text-align: right;
     font-size: .75em; }
     .container .times .r {
       margin: 1px 0; }
   .container .days {
-    width: 85%;
+    width: 95%;
     float: right;
     text-align: center; }
     .container .days .calendar {
